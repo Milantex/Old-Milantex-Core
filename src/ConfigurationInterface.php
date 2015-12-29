@@ -1,5 +1,5 @@
 <?php
-namespace Core;
+namespace Old\Milantex\Core;
 
 interface ConfigurationInterface {
     public static function getDatabaseHostname(): string;
