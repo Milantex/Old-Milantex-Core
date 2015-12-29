@@ -1,0 +1,20 @@
+{
+    "name": "milantex/old-milantex-core",
+    "description": "A very old application core from back in the day. Almost never used anymore except for demostration purposes and very small quick apps",
+    "type": "library",
+    "require": {
+        "milantex/daw": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Milan Tair",
+            "email": "milan.tair@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Old\\Milantex\\Core\\" : "src/"   
+        }
+    }
+}
