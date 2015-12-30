@@ -13,12 +13,17 @@ class Application {
     public function run() {
         session_start();
 
-        $database = new \Milantex\DAW\DataBase(
-            $this->configuration::getDatabaseHostname(),
-            $this->configuration::getDatabaseName(),
-            $this->configuration::getDatabaseUsername(),
-            $this->configuration::getDatabasePassword()
-        );
+        try {
+            $database = new \Milantex\DAW\DataBase(
+                $this->configuration::getDatabaseHostname(),
+                $this->configuration::getDatabaseName(),
+                $this->configuration::getDatabaseUsername(),
+                $this->configuration::getDatabasePassword()
+            );
+        } catch (\PDOException $e) {
+            echo 'Došlo je do greške prilikom uspostavljanja veze sa bazom podataka. Proverite parametre za vezu u konfiguracionoj datoteci Configuration.php.';
+            exit;
+        }
 
         $method = filter_input(INPUT_SERVER, 'REQUEST_METHOD', FILTER_SANITIZE_STRING);
         $rawUrl = filter_input(INPUT_GET, 'URL', FILTER_SANITIZE_STRING);
